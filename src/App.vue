@@ -16,6 +16,7 @@ export default{
       axios.get(`${this.baseUrl}/projects`)
         .then(res=>{
           //inserire nella variabile projects i dati ottenuti dalla API
+          console.log(res.data)
           this.projects = res.data.projects
         })
     }
@@ -24,7 +25,21 @@ export default{
 </script>
 
 <template>
-  <h1>Ciao mondo</h1>
+  <h1>My Projects</h1>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-4" v-for="(elem,index) in projects" :key="index">
+        <div class="card">
+          <img class="card-img-top" src="holder.js/100x180/" alt="Title">
+          <div class="card-body">
+            <h4 class="card-title">Title</h4>
+            <p class="card-text">Text</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
