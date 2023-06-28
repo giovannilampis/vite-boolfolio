@@ -1,5 +1,22 @@
 <script >
+import axios from 'axios';
 
+export default{
+  data() {
+    return {
+      projects: [],
+      baseUrl: 'localhost:8000/api'
+    }
+  },
+  mounted() {
+    
+  },
+  methods: {
+    getProjects(){
+      axios.get(`${this.baseUrl}/projects`)
+    }
+  },
+}
 </script>
 
 <template>
