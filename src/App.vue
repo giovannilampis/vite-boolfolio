@@ -9,11 +9,15 @@ export default{
     }
   },
   mounted() {
-    
+    $this.getProjects();
   },
   methods: {
     getProjects(){
       axios.get(`${this.baseUrl}/projects`)
+        .then(res=>{
+          //inserire nella variabile projects i dati ottenuti dalla API
+          this.projects = res.data.projects
+        })
     }
   },
 }
