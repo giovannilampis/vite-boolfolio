@@ -5,18 +5,17 @@ export default{
   data() {
     return {
       projects: [],
-      baseUrl: 'localhost:8000/api'
+      baseUrl: 'http://localhost:8000/api'
     }
   },
   mounted() {
-    $this.getProjects();
+    this.getProjects();
   },
   methods: {
     getProjects(){
       axios.get(`${this.baseUrl}/projects`)
         .then(res=>{
           //inserire nella variabile projects i dati ottenuti dalla API
-          console.log(res.data)
           this.projects = res.data.projects
         })
     }
@@ -25,16 +24,16 @@ export default{
 </script>
 
 <template>
-  <h1>My Projects</h1>
+  <h1 class="text-center mt-2 mb-5">Projects</h1>
 
   <div class="container">
     <div class="row">
-      <div class="col-4" v-for="(elem,index) in projects" :key="index">
+      <div class="col-4" v-for="(elem, index) in projects" :key="index">
         <div class="card">
           <img class="card-img-top" src="holder.js/100x180/" alt="Title">
           <div class="card-body">
-            <h4 class="card-title">Title</h4>
-            <p class="card-text">Text</p>
+            <h4 class="card-title">{{ elem.title }}</h4>
+            <p class="card-text">{{ elem.description }}</p>
           </div>
         </div>
       </div>
