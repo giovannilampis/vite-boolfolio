@@ -31,12 +31,13 @@ export default{
 </script>
 
 <template>
-  <h1 class="text-center mt-2 mb-5">Projects Page</h1>
+  <h1 class="text-center mt-3 mb-5">Projects Page</h1>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-4" v-for="(elem, index) in projects" :key="index">
-        <Card :project="elem"/>
+  <div class="dev_container">
+    <div class="row gy-5">
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3"
+       v-for="(elem, index) in projects" :key="index">
+          <Card :project="elem"/>
       </div>
 
     </div>

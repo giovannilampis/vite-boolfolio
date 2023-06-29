@@ -1,1 +1,93 @@
-@import 'node_modules/bootstrap/scss/bootstrap';
+@use './partials/_variables.scss' as *;
+@use './partials/_mixins.scss' as *;
+
+
+@import 'bootstrap/scss/bootstrap';
+
+/**************************
+    FONTS TITOLI
+***************************/
+
+// Chakra Petch 300 400 500 600 700
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap');
+// Press Start 2P 400
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+// Quantico 400 700
+@import url('https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap');
+
+/**************************
+    PARAGRAFI
+***************************/
+
+// Roboto Mono 100 200 300 400 500 600 700 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap');
+// Rajdhani 300 400 500 600 700
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+// Space Grotesk 300 400 500 600 700
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+// Jura 300 400 500 600 700
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
+
+/**************************
+    RESET
+***************************/
+*,
+*::before, 
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(to top,  $bkg_blue, $bkg_purple);
+    background-attachment: fixed;
+
+    color: $white;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+img{
+    max-width: 100%;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: $light_gray;
+    &:hover{
+        color: $light_gray;
+    }
+}
+.debug{
+    border: 1px solid red;
+}
+/**************************
+   GENERAL
+***************************/
+.dev_container{
+    width: 80%;
+    margin: 0 auto;
+}
+h1{
+    font-size: 4rem;
+    font-family: 'Chakra Petch', sans-serif;
+    letter-spacing: .2rem;
+}
+h2{
+    font-family: 'Chakra Petch', sans-serif;
+}
+/*To change the background color, there is the box-shadow trick.
+And for Firefox you need additionally filter:none.*/
+ :-webkit-autofill { 
+    filter:none; /* needed for firefox! */
+    box-shadow: 0 0 0 100px rgba($light_blue, 1) inset;
+}
