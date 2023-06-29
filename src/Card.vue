@@ -1,4 +1,5 @@
 <template>
+    
     <div class="card">
       <img class="card-img-top" :src="`${baseUrl}/storage/${project.img_url}`" :alt="project.title">
       <div class="card-body">
@@ -11,8 +12,16 @@
   <script>
   export default {
     name: 'Card',
-    props: ['project', 'baseUrl']
+    props: ['project', 'baseUrl'],
+
+    data() {
+        return {
+            baseUrl: 'http://localhost:8000'
+        }
+    }
+    
   }
+ 
   </script>
   
   <style scoped>

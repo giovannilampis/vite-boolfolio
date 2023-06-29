@@ -23,6 +23,7 @@ export default{
         .then(res=>{
           //inserire nella variabile projects i dati ottenuti dalla API
           this.projects = res.data.projects
+          console.log(this.projects)
         })
     }
   },
@@ -30,20 +31,14 @@ export default{
 </script>
 
 <template>
-  <h1 class="text-center mt-2 mb-5">Projects</h1>
+  <h1 class="text-center mt-2 mb-5">Projects Page</h1>
 
   <div class="container">
     <div class="row">
       <div class="col-4" v-for="(elem, index) in projects" :key="index">
-        <div class="card">
-          <img class="card-img-top" :src="`${baseUrl}/storage/${elem.img_url}`" alt="elem.title">
-          <div class="card-body">
-            <h4 class="card-title">{{ elem.title }}</h4>
-            <p class="card-text">{{ elem.description }}</p>
-          </div>
-        </div>
+        <Card :project="elem"/>
       </div>
-      <Card/>
+
     </div>
   </div>
 </template>
