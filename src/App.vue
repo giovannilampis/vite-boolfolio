@@ -1,11 +1,17 @@
 <script >
 import axios from 'axios';
+import Card from './Card.vue';
+
 
 export default{
+  components: {
+  Card
+},
+
   data() {
     return {
       projects: [],
-      baseUrl: 'http://localhost:8000/api'
+      baseUrl: 'http://localhost:8000'
     }
   },
   mounted() {
@@ -13,7 +19,7 @@ export default{
   },
   methods: {
     getProjects(){
-      axios.get(`${this.baseUrl}/projects`)
+      axios.get(`${this.baseUrl}/api/projects`)
         .then(res=>{
           //inserire nella variabile projects i dati ottenuti dalla API
           this.projects = res.data.projects
@@ -30,13 +36,14 @@ export default{
     <div class="row">
       <div class="col-4" v-for="(elem, index) in projects" :key="index">
         <div class="card">
-          <img class="card-img-top" src="holder.js/100x180/" alt="Title">
+          <img class="card-img-top" :src="`${baseUrl}/storage/${elem.img_url}`" alt="elem.title">
           <div class="card-body">
             <h4 class="card-title">{{ elem.title }}</h4>
             <p class="card-text">{{ elem.description }}</p>
           </div>
         </div>
       </div>
+      <Card/>
     </div>
   </div>
 </template>
