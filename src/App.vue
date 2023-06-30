@@ -21,12 +21,15 @@ export default{
   methods: {
     
   },
-  
+
 }
 </script>
 
 <template>
+
+  <!-- codice statico per tutte le pagine -->
   <AppHeader></AppHeader>
+  <!-- codice dinamico che può cambiare nelle varie pagine -->
   <router-view></router-view>
 </template>
 
