@@ -2,18 +2,18 @@
     <div>
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
               <div class="container">
-                <a class="navbar-brand" href="/">Boolfolio</a>
+                <router-link class="navbar-brand" :to="{ name: 'home' }">Boolfolio</router-link>
                 <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <div class="collapse navbar-collapse" id="collapsibleNavId">xdf
                     <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/home" aria-current="page">Home</a>
+                            <router-link class="nav-link active" :to="{ name: 'home' }" aria-current="page">Home</router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/portfolio">Portfolio</a>
+                            <router-link class="nav-link" :to="{ name: 'projects' }">Portfolio</router-link>
                         </li>
                      
                     </ul>
