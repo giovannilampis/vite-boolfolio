@@ -2,8 +2,8 @@
 import axios from 'axios';
 import Card from '../Card.vue';
 
-
 export default{
+  name: 'ProjectList',
   components: {
   Card
 },
@@ -23,7 +23,7 @@ export default{
         .then(res=>{
           //inserire nella variabile projects i dati ottenuti dalla API
           this.projects = res.data.projects
-          console.log(this.projects)
+        //   console.log(this.projects)
         })
     }
   },

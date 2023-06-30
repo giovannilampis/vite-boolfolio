@@ -12,9 +12,11 @@ const router = createRouter({
             component: AppHome
         },
         {
-            path: '/blog',
+            path: '/portfolio',
             name: 'projects',
             component: ProjectList
         },
     ]
-})
+});
+
+export { router };
