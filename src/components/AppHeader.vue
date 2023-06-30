@@ -6,8 +6,9 @@
 
 <script>
 export default {
+    name: 'AppHeader',
     data() {
-        name: 'AppHeader'
+        
         return {}
     }
 }
