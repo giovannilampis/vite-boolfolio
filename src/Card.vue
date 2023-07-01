@@ -8,7 +8,7 @@
                 </div>
                 <div class="card-text">
                     <span class="top_rated">categoria</span>
-                    <router-link :to="{name: 'SingleProject', params: {slug: project.slug}}">
+                    <router-link :to="{name: 'project', params: {slug: project.slug}}" class="btn btn-primary">
 
                         <h2 class="card-title">{{ project.title }}</h2>
                     </router-link>
