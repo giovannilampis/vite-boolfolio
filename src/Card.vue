@@ -8,21 +8,19 @@
                 </div>
                 <div class="card-text">
                     <span class="top_rated">categoria</span>
-                    <h2>{{ project.title }}</h2>
+                    <router-link :to="{name: 'SingleProject', params: {slug: project.slug}}">
+
+                        <h2 class="card-title">{{ project.title }}</h2>
+                    </router-link>
                     <p>{{  project.description }}</p>
                 </div>
                 <div class="card-stats">
-                    <span class="card-tec">tecnologie:</span>
+                    <span class="card-tec">tecnologies:</span>
                     <span>HTML, CSS, PHP</span>
                     
                 </div>
             </div>
         </div>
-      <!-- <img class="card-img-top" :src="`${baseUrl}/storage/${project.img_url}`" :alt="project.title">
-      <div class="card-body">
-        <h4 class="card-title">{{ project.title }}</h4>
-        <p class="card-text">{{ project.description }}</p>
-      </div> -->
     </div>
   </template>
   
