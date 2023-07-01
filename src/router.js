@@ -16,6 +16,11 @@ const router = createRouter({
             name: 'projects',
             component: ProjectList
         },
+        {
+            path: '/portfolio/:slug',
+            name: 'project',
+            component: SingleProject
+        },
     ]
 });
 
