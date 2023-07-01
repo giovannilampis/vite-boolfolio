@@ -20,10 +20,14 @@ export default{
   methods: {
     getProjects(){
       axios.get(`${this.baseUrl}/api/projects`)
-        .then(res=>{
+        .then(({ data })=>{
+          console.log(data.projects)
           //inserire nella variabile projects i dati ottenuti dalla API
-          this.projects = res.data.projects
+          this.projects = data.projects ;
+          console.log(this.projects)
         //   console.log(this.projects)
+        }).catch(e => {
+          console.error(e)
         })
     }
   },
@@ -35,11 +39,9 @@ export default{
 
   <div class="dev_container">
     <div class="row gy-5">
-      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3"
-       v-for="(elem, index) in projects" :key="index">
-          <Card :project="elem"/>
+      <div v-for="project of projects" :key="project.id" class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+        <Card  :project="project" />
       </div>
-
     </div>
   </div>
 </template>

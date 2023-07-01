@@ -3,15 +3,18 @@
     <div class="cards_container">
         <div class="tilt_box_wrap">
             <div class="card rgb">
+               
                 <div class="card-image">
                     <!-- <img :src="`${baseUrl}/storage/${project.img_url}`" :alt="project.title"> -->
                 </div>
+
+                <router-link :to="{ name: 'project', params: {slug: project.title }}" class="btn btn-primary">
+                    <h2 class="card-title">{{ project.title }}</h2>
+                </router-link>
+
                 <div class="card-text">
                     <span class="top_rated">categoria</span>
-                    <router-link :to="{name: 'project', params: {slug: project.slug}}" class="btn btn-primary">
-
-                        <h2 class="card-title">{{ project.title }}</h2>
-                    </router-link>
+                  
                     <p>{{  project.description }}</p>
                 </div>
                 <div class="card-stats">
@@ -27,7 +30,7 @@
   <script>
   export default {
     name: 'Card',
-    props: ['project', 'baseUrl'],
+    props: ['project'],
 
     data() {
         return {

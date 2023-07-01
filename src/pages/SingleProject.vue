@@ -1,6 +1,7 @@
 <template>
     <div>
       <h1 class="text-center mt-3 mb-5">Single Project</h1>
+      <Card :project="project" />
     </div>
   </template>
   
@@ -26,7 +27,7 @@
       getSingleProject() {
         axios.get(`${this.baseUrl}/api/projects/${this.$route.params.slug}`).then((response) => {
             if (response.data.success) {
-              this.project = response.data.project;
+              this.project = response.data.project; 
             } else {
               this.$router.push({ name: 'not-found' });
             }

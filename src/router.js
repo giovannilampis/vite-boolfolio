@@ -25,7 +25,7 @@ const router = createRouter({
             component: SingleProject
         },
         {
-            path: '/not-found',
+            path: '/*',
             name: 'not-found',
             component: NotFound
         },
