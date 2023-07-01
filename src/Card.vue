@@ -5,7 +5,9 @@
             <div class="card rgb">
                
                 <div class="card-image">
-                    <!-- <img :src="`${baseUrl}/storage/${project.img_url}`" :alt="project.title"> -->
+
+                    <img  class="w-100" :src="`${baseUrl}/storage/${project.img_url}`" @error="imageLoadError" />
+                  
                 </div>
 
                 <router-link :to="{ name: 'project', params: {slug: project.title }}" class="btn btn-primary">
@@ -13,14 +15,14 @@
                 </router-link>
 
                 <div class="card-text">
-                    <span class="top_rated">categoria</span>
-                  
+                    <span class="top_rated">Categoria</span>
+                    <span v-if="project.category">{{ project.category.name }}</span>
+                    <span v-else>no category</span>
                     <p>{{  project.description }}</p>
                 </div>
                 <div class="card-stats">
-                    <span class="card-tec">tecnologies:</span>
-                    <span>HTML, CSS, PHP</span>
-                    
+                    <span class="card-tec">Tecnologies:&nbsp;</span>
+                    <span v-for="technology in project.technologies">{{ technology.name }}&nbsp;</span>
                 </div>
             </div>
         </div>
@@ -35,6 +37,11 @@
     data() {
         return {
             baseUrl: 'http://localhost:8000'
+        }
+    },
+    methods:{
+        imageLoadError(event){
+            event.target.src = "https://picsum.photos/600";
         }
     }
     
