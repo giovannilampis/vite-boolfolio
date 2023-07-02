@@ -38,6 +38,7 @@
 </div> -->
 
 <div class="container">
+  <button class="my_btn position-fixed end-0 me-5 mt-4" href="" @click.prevent="goBack()">Go Back</button>
   <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-12 mt-4">
         <img  class="w-100" :src="`${baseUrl}/storage/${project.img_url}`" @error="imageLoadError" />

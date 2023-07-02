@@ -56,7 +56,7 @@ export default{
     </select>
   </div>
 
-  <div class="dev_container">
+  <div class="card_container mb-5">
     <div class="row gy-5">
       <div v-for="project of projects" :key="project.id" class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
         <Card  :project="project" />
