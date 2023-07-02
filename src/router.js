@@ -27,6 +27,7 @@ const router = createRouter({
         {
             path: '/contacts',
             name: 'contacts',
+            // LAZY LOADING PAGE SINTAX
             component: () => import('./pages/Contacts.vue')
         },
         {
