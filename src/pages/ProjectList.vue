@@ -3,10 +3,9 @@ import axios from 'axios';
 import Card from '../Card.vue';
 
 export default{
+
   name: 'ProjectList',
-  components: {
-  Card
-},
+  components: {Card},
 
   data() {
     return {
@@ -14,9 +13,11 @@ export default{
       baseUrl: 'http://localhost:8000'
     }
   },
+
   mounted() {
     this.getProjects();
   },
+
   methods: {
     getProjects(){
       axios.get(`${this.baseUrl}/api/projects`)
@@ -32,9 +33,11 @@ export default{
     }
   },
 }
+
 </script>
 
 <template>
+
   <h1 class="text-center mt-3 mb-5">Projects Page</h1>
 
   <div class="dev_container">
@@ -44,6 +47,7 @@ export default{
       </div>
     </div>
   </div>
+  
 </template>
 
 <style lang="scss">
