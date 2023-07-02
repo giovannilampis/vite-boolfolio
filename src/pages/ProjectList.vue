@@ -10,7 +10,8 @@ export default{
   data() {
     return {
       projects: [],
-      baseUrl: 'http://localhost:8000'
+      baseUrl: 'http://localhost:8000',
+      categories: null
     }
   },
 
@@ -30,6 +31,11 @@ export default{
         }).catch(e => {
           console.error(e)
         })
+    },
+    getCategories(){
+      axios.get(`${this.baseUrl}/api/categories`).then( res => {
+          this.categories = res.data.categories
+      })
     }
   },
 }
@@ -40,6 +46,13 @@ export default{
 
   <h1 class="text-center mt-3 mb-5">Projects Page</h1>
 
+  <div class="mb-3">
+    <label for="" class="form-label">Category Filter</label>
+    <select class="form-select form-select-lg" name="" id="">
+      <option v-for=" (element, index) in categories " :key="index">{{ element.name }}</option>
+    </select>
+  </div>
+
   <div class="dev_container">
     <div class="row gy-5">
       <div v-for="project of projects" :key="project.id" class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
@@ -47,7 +60,7 @@ export default{
       </div>
     </div>
   </div>
-  
+
 </template>
 
 <style lang="scss">
