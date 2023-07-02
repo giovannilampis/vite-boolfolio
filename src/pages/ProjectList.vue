@@ -11,12 +11,13 @@ export default{
     return {
       projects: [],
       baseUrl: 'http://localhost:8000',
-      categories: null
+      categories: []
     }
   },
 
   mounted() {
     this.getProjects();
+    this.getCategories();
   },
 
   methods: {
@@ -26,16 +27,18 @@ export default{
           console.log(data.projects)
           //inserire nella variabile projects i dati ottenuti dalla API
           this.projects = data.projects ;
-          console.log(this.projects)
-        //   console.log(this.projects)
+          // console.log(this.projects)
         }).catch(e => {
           console.error(e)
         })
     },
+
     getCategories(){
-      axios.get(`${this.baseUrl}/api/categories`).then( res => {
+      axios.get(`${this.baseUrl}/api/categories`).then(res => {
           this.categories = res.data.categories
-      })
+      }).catch(e => {
+          console.error(e)
+        })
     }
   },
 }
@@ -46,10 +49,10 @@ export default{
 
   <h1 class="text-center mt-3 mb-5">Projects Page</h1>
 
-  <div class="mb-3">
+  <div class="container mb-3">
     <label for="" class="form-label">Category Filter</label>
     <select class="form-select form-select-lg" name="" id="">
-      <option v-for=" (element, index) in categories " :key="index">{{ element.name }}</option>
+      <option v-for="(element,index) in categories" :key="index">{{element.name}}</option>
     </select>
   </div>
 

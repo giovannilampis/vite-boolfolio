@@ -91,3 +91,21 @@ And for Firefox you need additionally filter:none.*/
     filter:none; /* needed for firefox! */
     box-shadow: 0 0 0 100px rgba($light_blue, 1) inset;
 }
+.my_btn{
+    border: 2px solid $dark_green;
+    border-radius: 3px;
+    outline: none;
+    font-size: .85rem;
+    font-family: inherit;
+    color: $dark_green;
+    background-color: transparent;
+    padding: .5rem;
+
+    &:hover{
+        border: 2px solid $matrix_green;
+        color: $matrix_green;
+    }
+}
+.fs_btn_plus{text-align: center;
+    font-size: 1.1rem;
+}

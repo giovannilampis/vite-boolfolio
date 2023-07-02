@@ -1,6 +1,6 @@
 <template>
     
-    <div class="cards_container">
+    <div class="cards_container mt-5">
         <div class="tilt_box_wrap">
             <div class="card rgb">
                
@@ -10,20 +10,25 @@
                   
                 </div>
 
-                <router-link :to="{ name: 'project', params: {slug: project.title }}" class="btn btn-primary">
-                    <h2 class="card-title">{{ project.title }}</h2>
-                </router-link>
+               
 
                 <div class="card-text">
-                    <span class="top_rated">Categoria</span>
-                    <span v-if="project.category">{{ project.category.name }}</span>
-                    <span v-else>no category</span>
+                    <!-- <span class="top_rated">Categoria:</span>
+                    <span v-if="project.category">{{ project.category.name }}</span> -->
+                    <span class="top_rated">{{  project.title }}</span>
+                    <!-- <span v-else>no category</span> -->
                     <p>{{  project.description }}</p>
                 </div>
-                <div class="card-stats">
+                <!-- <div class="card-stats">
                     <span class="card-tec">Tecnologies:&nbsp;</span>
                     <span v-for="technology in project.technologies">{{ technology.name }}&nbsp;</span>
+                </div> -->
+                <div class="card-stats">
+                    <router-link :to="{ name: 'project', params: {slug: project.title }}" class=" my_btn fs_btn_plus">
+                        View Details
+                    </router-link>
                 </div>
+             
             </div>
         </div>
     </div>
@@ -131,28 +136,29 @@
 
         .top_rated{
             color: $main_color;
-            font-size: .75rem;
+            font-size: 1rem;
             font-weight: 600;
             letter-spacing: 4px;
         }
-        h2{
-            margin-top: .55rem;
-            margin-bottom: 1.3rem;
-            font-size: 1.2rem;
-            color: $light_blue;
-            letter-spacing: .2rem;
+        span:nth-child(2),
+        span:nth-child(3){
+            font-size: .85rem;
+            color: $white;
+            margin-left: .2rem;
+            font-weight: 300;
         }
         p{
             color: $mid_gray;
             font-size: 14px;
             text-align: justify;
+            margin-top: 1rem;
         }
     }
     .card-stats{
         grid-area: stats;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: flex-end;
         padding: 0 1.5rem;
 
         .card-tec{

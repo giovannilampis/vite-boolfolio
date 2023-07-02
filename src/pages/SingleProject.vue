@@ -1,8 +1,10 @@
 <template>
-<span class="fs-3 text-center mt-3 mb-5">Single Project:&nbsp;</span>
-<span class="fs-3 text-center mt-3 mb-5">{{ project.title }}</span>
-<button class="btn btn-primary" href="" @click.prevent="goBack()">Go Back</button>
-<div class="row justify-content-center">
+<!-- <div class="fs-3 text-center mt-3 mb-5">
+  Project Name:&nbsp; <span class="fs-3 text-center mt-3 mb-5">{{ project.title }}</span>
+  <button class="my_btn d-inline position-fixed end-0 me-5" href="" @click.prevent="goBack()">Go Back</button>
+</div>
+
+<div class="row justify-content-center mb-5 mt-3">
   <div class="col-4">
     <div class="cards_container">
       <div class="tilt_box_wrap">
@@ -23,7 +25,7 @@
                 <span v-else>no category</span>
                 <p>{{  project.description }}</p>
             </div>
-            
+
             <div class="card-stats">
                 <span class="card-tec">Tecnologies:&nbsp;</span>
                 <span v-for="technology in project.technologies">{{ technology.name }}&nbsp;</span>
@@ -32,6 +34,29 @@
           </div>
       </div>
     </div>
+  </div>
+</div> -->
+
+<div class="container">
+  <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 mt-4">
+        <img  class="w-100" :src="`${baseUrl}/storage/${project.img_url}`" @error="imageLoadError" />
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 mt-4">
+          <div class="d-flex flex-column justify-content-start align-items-center">
+            <div class="">
+                <span class="top_rated">Categoria:&nbsp;</span>
+                <span v-if="project.category">{{ project.category.name }}</span>
+                <span v-else>no category</span>
+                <p>{{  project.description }}</p>
+            </div>
+            <div class="card-stats">
+                <span class="card-tec">Tecnologies:&nbsp;</span>
+                <span v-for="technology in project.technologies">{{ technology.name }}&nbsp;</span>
+            </div>
+
+          </div>
+      </div>
   </div>
 </div>
 </template>

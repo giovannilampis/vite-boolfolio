@@ -41,7 +41,7 @@ export default {
 <style lang="scss" scoped>
 
 #collapsibleNavId .router-link-active {
-    background-color: #fb07d9;
+    border-bottom: 3px solid #fb07d9;
 }
 
 </style>
