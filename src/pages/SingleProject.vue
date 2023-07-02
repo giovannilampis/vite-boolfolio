@@ -57,16 +57,10 @@
                 if(error.response.status === 404){
                     this.$router.push({name: 'not-found'})
                 } else {
-
+                  // any other error
+                  // this.customMessage = 'There was an error'
                 }
             }
-
-        
-            // if (response.data.success) {
-            //   this.project = response.data.project; 
-            // } else {
-            //   this.$router.push({ name: 'not-found' });
-            // }
         );
       }
     }
