@@ -49,13 +49,25 @@
     methods: {
       getSingleProject() {
     
-        axios.get(`${this.baseUrl}/api/projects/${this.$route.params.slug}`).then((response) => {
-            if (response.data.success) {
-              this.project = response.data.project; 
-            } else {
-              this.$router.push({ name: 'not-found' });
+        axios.get(`${this.baseUrl}/api/projects/${this.$route.params.slug}`)
+            .then((response) => {
+
+              this.project = response.data.project;
+            }, error => {
+                if(error.response.status === 404){
+                    this.$router.push({name: 'not-found'})
+                } else {
+
+                }
             }
-          })
+
+        
+            // if (response.data.success) {
+            //   this.project = response.data.project; 
+            // } else {
+            //   this.$router.push({ name: 'not-found' });
+            // }
+        );
       }
     }
   }

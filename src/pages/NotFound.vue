@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <h1>
-            NOT FOUND 🤨
-        </h1>
+    <div class="mt-4 mx-3">
+        <p class="fs-5">
+            Error: 404
+        </p>
     </div>
 </template>
 
