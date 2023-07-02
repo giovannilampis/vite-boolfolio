@@ -43,18 +43,20 @@
         <img  class="w-100" :src="`${baseUrl}/storage/${project.img_url}`" @error="imageLoadError" />
       </div>
       <div class="col-lg-6 col-md-6 col-sm-12 mt-4">
-          <div class="d-flex flex-column justify-content-start align-items-center">
-            <div class="">
-                <span class="top_rated">Categoria:&nbsp;</span>
-                <span v-if="project.category">{{ project.category.name }}</span>
-                <span v-else>no category</span>
-                <p>{{  project.description }}</p>
+          <div class="d-flex flex-column justify-content-start align-items-start">
+            <div class="mb-5">
+              <span class="top_rated">Categoria:&nbsp;</span>
+              <span v-if="project.category">{{ project.category.name }}</span>
+              <span v-else>no category</span>
             </div>
-            <div class="card-stats">
-                <span class="card-tec">Tecnologies:&nbsp;</span>
-                <span v-for="technology in project.technologies">{{ technology.name }}&nbsp;</span>
+            <div class="mb-5">
+              <span class="top_rated">Tecnologies:&nbsp;</span>
+              <span v-for="technology in project.technologies">{{ technology.name }}&nbsp;</span>
             </div>
-
+          </div>
+          <div>
+            <span class="top_rated">Description:&nbsp;</span>
+            <span>{{project.description }}</span>
           </div>
       </div>
   </div>
@@ -110,4 +112,11 @@
   button {
     display: block;
   }
+
+  .top_rated{
+            color: #BB2649;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+        }
   </style>
