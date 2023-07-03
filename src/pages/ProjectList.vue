@@ -36,9 +36,7 @@ export default{
     getCategories(){
       axios.get(`${this.baseUrl}/api/categories`).then(res => {
           this.categories = res.data.categories
-      }).catch(e => {
-          console.error(e)
-        })
+      })
     }
   },
 }
