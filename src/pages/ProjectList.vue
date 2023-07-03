@@ -11,7 +11,8 @@ export default{
     return {
       projects: [],
       baseUrl: 'http://localhost:8000',
-      categories: []
+      categories: [],
+      selected_categories: 'all'
     }
   },
 
@@ -49,7 +50,8 @@ export default{
 
   <div class="container mb-3">
     <label for="" class="form-label">Category Filter</label>
-    <select class="form-select form-select-lg" name="" id="">
+    <select class="form-select form-select-lg" name="" id="" v-model="selected_categories">
+      <option value="all">Select</option>
       <option v-for="(element,index) in categories" :key="index">{{element.name}}</option>
     </select>
   </div>
