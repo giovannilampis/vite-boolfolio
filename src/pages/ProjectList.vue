@@ -50,7 +50,7 @@ export default{
 
   <div class="container mb-3">
     <label for="" class="form-label">Category Filter</label>
-    <select class="form-select form-select-lg" name="" id="" v-model="selectedCategory">
+    <select @onchange="getProjects()" class="form-select form-select-lg" name="" id="" v-model="selectedCategory">
       <option value="all">--all--</option>
       <option :value="element.id" v-for="(element,index) in categories" :key="index">{{element.name}}</option>
     </select>
