@@ -12,7 +12,8 @@ export default{
       projects: [],
       baseUrl: 'http://localhost:8000',
       categories: [],
-      selectedCategory: 'all'
+      selectedCategory: 'all',
+  
     }
   },
 
@@ -22,17 +23,30 @@ export default{
   },
 
   methods: {
+    // getProjects(){
+    //   axios.get(`${this.baseUrl}/api/projects`)
+    //     .then(({ data })=>{
+    //       console.log(data.projects)
+    //       //inserire nella variabile projects i dati ottenuti dalla API
+    //       this.projects = data.projects ;
+    //       // console.log(this.projects)
+    //     }).catch(e => {
+    //       console.error(e)
+    //     })
+    // },
     getProjects(){
-      axios.get(`${this.baseUrl}/api/projects`)
-        .then(({ data })=>{
-          console.log(data.projects)
-          //inserire nella variabile projects i dati ottenuti dalla API
-          this.projects = data.projects ;
-          // console.log(this.projects)
-        }).catch(e => {
-          console.error(e)
-        })
-    },
+             const params = {
+            }
+           if (this.selectedCategory !== 'all') {
+                params.category_id = this.selectedCategory
+           }
+          console.log(params)
+          console.log(`${this.baseUrl}/api/projects`, { params })
+            axios.get(`${this.baseUrl}/api/projects`, { params }).then(res=>{
+              console.log(res.data.projects)
+                this.projects = res.data.projects
+            })
+        },
 
     getCategories(){
       axios.get(`${this.baseUrl}/api/categories`).then(res => {
@@ -50,7 +64,7 @@ export default{
 
   <div class="container mb-3">
     <label for="" class="form-label">Category Filter</label>
-    <select @onchange="getProjects()" class="form-select form-select-lg" name="" id="" v-model="selectedCategory">
+    <select @change="getProjects()" class="form-select form-select-lg" name="" id="" v-model="selectedCategory">
       <option value="all">--all--</option>
       <option :value="element.id" v-for="(element,index) in categories" :key="index">{{element.name}}</option>
     </select>
@@ -58,7 +72,7 @@ export default{
 
   <div class="card_container mb-5">
     <div class="row gy-5">
-      <div v-for="project of projects" :key="project.id" class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+      <div v-for="project of projects" :key="project.id" class="col-sm-12 col-md-6 col-lg-3 col-xl-3">
         <Card  :project="project" />
       </div>
     </div>
